@@ -1,0 +1,5 @@
+[gonotify]
+backend = prowl
+
+[prowl]
+api_key = 
