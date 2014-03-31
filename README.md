@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rphillips/gonotify.svg?branch=master)](https://travis-ci.org/rphillips/gonotify)
+
 # gonotify
 
 Pluggable command-line notification tool. Currently supports the following
