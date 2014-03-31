@@ -11,6 +11,18 @@ notification backends:
 go get https://github.com/rphillips/gonotify
 ```
 
+# Configuration
+
+~/.gonotify: Insert your API key
+
+```
+[gonotify]
+backend = prowl
+
+[prowl]
+api_key =
+```
+
 # Usage
 
 Notify yourself after a build:
