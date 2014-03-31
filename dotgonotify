@@ -1,0 +1,9 @@
+[gonotify]
+backend = prowl
+
+[prowl]
+api_key =
+
+[pushover]
+api_key =
+user_key =
