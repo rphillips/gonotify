@@ -6,6 +6,7 @@ Pluggable command-line notification tool. Currently supports the following
 notification backends:
 
 * Prowl
+* Pushover
 
 # Installation
 
@@ -23,6 +24,10 @@ backend = prowl
 
 [prowl]
 api_key =
+
+[pushover]
+api_key =
+user_key =
 ```
 
 # Usage
