@@ -1,6 +1,7 @@
 package main
 
 import (
+  "bitbucket.org/kisom/gopush/pushover"
   "flag"
   "fmt"
   "github.com/stevenleeg/gowl"
@@ -27,11 +28,30 @@ func ProwlBackend(file *ini.File, event *string, text *string) {
 
   api_key, ok := file.Get("prowl", "api_key")
   if !ok {
-    log.Fatal("Prowl API Key not found")
+    log.Fatal("Prowl API key not found")
   }
 
   g := gowl.New(api_key)
   g.Add(notification)
+}
+
+func PushoverBackend(file *ini.File, event *string, text *string) {
+  api_key, ok := file.Get("pushover", "api_key")
+  if !ok {
+    log.Fatal("Pushover API key not found")
+  }
+
+  user_key, ok := file.Get("pushover", "user_key")
+  if !ok {
+    log.Fatal("Pushover User key not found")
+  }
+
+  identity := pushover.Authenticate(api_key, user_key)
+  sent := pushover.Notify(identity, fmt.Sprintf("%s:%s", event, text))
+  if !sent {
+    fmt.Println("[!] notification failed.")
+    os.Exit(1)
+  }
 }
 
 func getBackend(config *ini.File) (string, bool) {
@@ -53,6 +73,7 @@ func main() {
 
   backends := make(map[string]BackendFunc)
   backends["prowl"] = ProwlBackend
+  backends["pushover"] = PushoverBackend
 
   // Get User's home directory
   usr, err := user.Current()
