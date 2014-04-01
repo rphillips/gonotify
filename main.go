@@ -1,15 +1,16 @@
 package main
 
 import (
-	"bitbucket.org/kisom/gopush/pushover"
 	"flag"
 	"fmt"
-	"github.com/stevenleeg/gowl"
-	"github.com/vaughan0/go-ini"
 	"log"
 	"os"
 	"os/user"
 	"path"
+
+	"bitbucket.org/kisom/gopush/pushover"
+	"github.com/stevenleeg/gowl"
+	"github.com/vaughan0/go-ini"
 )
 
 const (
