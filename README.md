@@ -14,6 +14,10 @@ notification backends:
 go get https://github.com/rphillips/gonotify
 ```
 
+# Binaries
+
+[Download](https://gobuild.io/download/github.com/rphillips/gonotify)
+
 # Configuration
 
 ~/.gonotify: Insert your API key
